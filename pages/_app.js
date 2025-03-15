@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 import Head from "next/head"
+import { Analytics } from "@vercel/analytics/react"
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -36,6 +37,8 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <GlobalStyle />
       <Component {...pageProps} />
+      <Analytics />
+
     </>
   )
 }
