@@ -33,6 +33,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="google-adsense-account" content="ca-pub-1629124394187689"></meta>
         <title>Portfolio</title>
       </Head>
       <GlobalStyle />
