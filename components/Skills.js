@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function Skills() {
   const skills = [
     {
-      category: "Frontend Development",
+      category: "Frontend",
       items: ["React.js", "Next.js", "JavaScript", "TypeScript", "MUI", "Framer Motion"],
     },
     {
@@ -14,13 +14,14 @@ export default function Skills() {
       items: ["Node.js", "Express.js", "MongoDB",  "REST API"],
     },
     {
-      category: "Tools & Workflow",
+      category: "DevOps & Workflow",
       items: ["Git", "GitHub", "VS Code", "Figma", "Power BI", "Responsive Design", "Performance Optimization"],
     },
     {
-      category: "Leadership & People Management",
+      category: "People Management",
       items: [
         "Emotional Intelligence",
+        "Empathy‑Driven User Support",
         "Talent Discovery & Development",
         "Team Motivation & Growth",
         "Strategic Decision-Making",
@@ -28,9 +29,10 @@ export default function Skills() {
       ],
     },
     {
-      category: "Back Office & Operations",
+      category: "Leadership & Soft Skills",
       items: [
         "Customer Service",
+        "Conflict Resolution",
         "Problem Resolution",
         "Workforce Coordination",
         "Back Office Management",

@@ -9,7 +9,7 @@ export default function Timeline() {
       id: 1,
       role: "Full-Stack Web Development (Training)",
       company: "Self-Learning & Courses",
-      period: "2024 - Present",
+      period: "10/2024 - 04/2025",
       location: "Tunisia",
       tasks: [
         "Mastering React, Next.js, and Node.js to build modern web applications.",

@@ -1,14 +1,21 @@
-"use client";
+"use client"
 
-import Head from "next/head";
-import styled from "styled-components";
-import { motion } from "framer-motion";
-import Navbar from "../components/Navbar";
-import ProjectCard from "../components/ProjectCard";
-import Footer from "../components/Footer";
+import Head from "next/head"
+import styled from "styled-components"
+import { motion } from "framer-motion"
+import Navbar from "../components/Navbar"
+import ProjectCard from "../components/ProjectCard"
+import Footer from "../components/Footer"
 
 export default function Projects() {
   const projects = [
+    {
+      id: 3,
+      title: "Dinarwise",
+      description: "A financial platform focused on digital currency solutions and services.",
+      codeUrl: "https://dinarwise.me/",
+      image: "/d.png", // Changed from "./d.png" to "/d.png"
+    },
     {
       id: 1,
       title: "Sphere Animation",
@@ -23,21 +30,7 @@ export default function Projects() {
       codeUrl: "https://codepen.io/Hamdi-Ben-Jarrar/full/ZYzKGyp",
       video: "/starfield-tunnel.mp4",
     },
-    {
-      id: 3,
-      title: "Lava Plumes / Ice Crystals",
-      description: "An artistic rendering of lava plumes and ice crystals using creative coding techniques.",
-      codeUrl: "https://codepen.io/Hamdi-Ben-Jarrar/full/zxOQBRM",
-      video: "/lava-plumes-ice-crystals.mp4",
-    },
-    {
-      id: 4,
-      title: "Dynamic Particle Nexus",
-      description: "A dynamic particle network visualization that creates mesmerizing patterns.",
-      codeUrl: "https://codepen.io/Hamdi-Ben-Jarrar/full/RNbmGRp",
-      video: "/dynamic-particle-nexu.mp4",
-    },
-  ];
+  ]
 
   return (
     <Container>
@@ -71,14 +64,14 @@ export default function Projects() {
 
       <Footer />
     </Container>
-  );
+  )
 }
 
 const Container = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-`;
+`
 
 const Main = styled.main`
   flex: 1;
@@ -88,7 +81,7 @@ const Main = styled.main`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
-`;
+`
 
 const Header = styled(motion.header)`
   text-align: center;
@@ -109,7 +102,7 @@ const Header = styled(motion.header)`
     max-width: 600px;
     margin: 0 auto;
   }
-`;
+`
 
 const ProjectsGrid = styled.div`
   display: grid;
@@ -124,4 +117,4 @@ const ProjectsGrid = styled.div`
   @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
-`;
+`

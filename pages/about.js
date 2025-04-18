@@ -49,22 +49,33 @@ export default function About() {
               Hello! I’m Hamdi — a Full-Stack Developer obsessed with building
               digital solutions that don’t just work, but inspire. My love for
               coding began at the intersection of art and logic: the thrill of
-              turning abstract ideas into functional, beautiful tools.</p><p>While
-              studying Computer Science, I realized that great software isn’t
-              just about algorithms—it’s about empathy. It’s about understanding!
+              turning abstract ideas into functional, beautiful tools.
             </p>
             <p>
-              How does a user feel when they interact with a button? How does a
-              backend decision ripple into real-world impact? This mindset led
-              me to create (Soon), a platform born from my belief that
-              technology should empower people, not just serve them.
+              While studying Computer Science, I realized that great systems
+              isn’t just about algorithms—it’s about empathy. It’s about
+              understanding!
             </p>
             <p>
-              Why work with me? I thrive when solving puzzles that
-              matter, helping peaple launch MVP’s that investors can’t
-              ignore. My sweet spot? Projects where elegance and ambition
-              collide. Let’s build something that lasts. (Open to: Strategic
-              collaborations)
+              Human‑First Mindset: I obsess over how users feel at every
+              touchpoint—micro‑interactions, performance, and error handling
+              alike. Scalable Architecture: From REST/GraphQL backends with
+              Node.js to data dashboards in Power BI, I deliver solutions built
+              to grow. Leadership & Collaboration: I foster harmony and high
+              morale, aligning cross‑functional teams around shared goals.
+              Always Learning: I’m diving into Generative AI and expanding my
+              Power BI expertise next—because tomorrow’s tech deserves
+              future‑proof code today.
+            </p>
+            <p>
+              Why Work With Me? I thrive on solving puzzles that matter. Whether
+              you’re launching an investor‑ready MVP or modernizing legacy
+              systems, I bring the rare blend of creative vision, technical
+              rigor, and people‑centered leadership. Let’s build something
+              powerful—together.
+              <br /> <br />
+              Open to: Strategic collaborations • Full‑stack roles • Disruptive
+              side projects
             </p>
           </AboutContent>
         </AboutSection>
@@ -221,7 +232,7 @@ const EducationCard = styled(motion.div)`
   h4 {
     font-size: 1.2rem;
     font-weight: 500;
-    color: #D35040;
+    color: #d35040;
     margin-bottom: 0.5rem;
   }
 
