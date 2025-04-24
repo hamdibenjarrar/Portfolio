@@ -89,7 +89,7 @@ export default function Contact() {
               </IconWrapper>
               <div>
                 <h3>Email</h3>
-                <p>hamdibenjarrar@gmail.com</p>
+                <p>me@hamdibenjarrar.tech</p>
               </div>
             </ContactItem>
 
