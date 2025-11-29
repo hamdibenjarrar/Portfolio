@@ -1,11 +1,26 @@
+import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 
-export default async function handler(req, res) {
+interface ContactFormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+interface ApiResponse {
+  message: string;
+}
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<ApiResponse>
+) {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
-  const { name, email, subject, message } = req.body;
+  const { name, email, subject, message } = req.body as ContactFormData;
 
   if (!name || !email || !subject || !message) {
     return res.status(400).json({ message: "All fields are required" });
@@ -24,7 +39,7 @@ export default async function handler(req, res) {
     // Email options
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_TO || process.env.EMAIL_USER, 
+      to: process.env.EMAIL_TO || process.env.EMAIL_USER,
       subject: `New Contact Form Submission: ${subject}`,
       text: `
       Name: ${name}
