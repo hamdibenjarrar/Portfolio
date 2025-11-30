@@ -64,7 +64,7 @@ export default class MyDocument extends Document {
             "url": "https://hamdibenjarrar.tech",
             "image": "https://hamdibenjarrar.tech/img.png",
             "jobTitle": "Full-Stack Developer & Innovation Leader",
-            "description": "Full-Stack Developer & Digital Innovation Strategist building impactful solutions for social change",
+            "description": "Full-Stack Developer & Digital Innovation Strategist with 2+ years of intensive experience building transformative solutions for social change",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Tunis",

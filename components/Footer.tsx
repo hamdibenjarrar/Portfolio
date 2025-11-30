@@ -151,7 +151,7 @@ const FooterDescription = styled.p`
   font-family: var(--font-body);
   font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--color-cream-dark);
+  color: #D5D0C3;
   max-width: 600px;
 `;
 
@@ -186,7 +186,7 @@ const FooterLinks = styled.div`
 const FooterLink = styled(Link)`
   font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--color-cream-dark);
+  color: #D5D0C3;
   transition: all 0.3s ease;
   width: fit-content;
   position: relative;
@@ -220,7 +220,7 @@ const SocialLinks = styled.div`
 const SocialLink = styled.a`
   font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--color-cream-dark);
+  color: #D5D0C3;
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -263,13 +263,13 @@ const FooterBottom = styled.div`
 const Copyright = styled.p`
   font-family: var(--font-body);
   font-size: 0.9rem;
-  color: var(--color-gray-light);
+  color: #BFBAB0;
 `;
 
 const MadeWith = styled.p`
   font-family: var(--font-body);
   font-size: 0.9rem;
-  color: var(--color-gray-light);
+  color: #BFBAB0;
   font-style: italic;
 `;
 

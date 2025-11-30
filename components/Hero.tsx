@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
+import Image from "next/image";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -139,7 +140,16 @@ export default function Hero() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 1 }}
             >
-              <ProfileImage src="/img.png" alt="Hamdi Ben Jarrar" />
+              <Image 
+                src="/img.png" 
+                alt="Hamdi Ben Jarrar - Full-Stack Developer and Innovation Leader" 
+                width={500}
+                height={500}
+                priority
+                quality={85}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
+                style={{ objectFit: 'cover' }}
+              />
               <ImageBorder />
             </ProfileImageWrapper>
           </ImageContent>
@@ -208,19 +218,19 @@ const ProfileImageWrapper = styled.div`
   width: 100%;
   max-width: 400px;
   aspect-ratio: 1;
-`;
-
-const ProfileImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 5px solid var(--color-black);
-  position: relative;
-  z-index: 2;
-  filter: grayscale(20%);
-  transition: all 0.4s ease;
-
-  &:hover {
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 5px solid var(--color-black);
+    position: relative;
+    z-index: 2;
+    filter: grayscale(20%);
+    transition: all 0.4s ease;
+  }
+  
+  &:hover img {
     filter: grayscale(0%);
     transform: scale(1.02);
   }

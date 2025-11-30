@@ -12,7 +12,7 @@ export default function Home() {
         <title>Hamdi Ben Jarrar | Innovation & Impact Leader</title>
         <meta 
           name="description" 
-          content="Full-Stack Developer & Digital Innovation Strategist with 5+ years of experience building impactful solutions for social change. Expert in Next.js, React, Node.js, and digital transformation projects across Europe and Africa. Specialized in education technology, NGO digital platforms, and scalable web applications." 
+          content="Full-Stack Developer & Digital Innovation Strategist with 2+ years of intensive experience building transformative solutions for social change. Expert in Next.js, React, Node.js, and digital transformation projects across Europe and Africa. Specialized in education technology, NGO digital platforms, and scalable web applications that create lasting impact." 
         />
         <link rel="icon" href="/logo.png" />
       </Head>
@@ -23,26 +23,32 @@ export default function Home() {
         <Hero />
         <AboutPreview>
           <AboutContent>
-            <AboutTitle>Bridging Technology and Social Impact</AboutTitle>
+            <AboutTitle>Crafting Digital Solutions That Transform Lives</AboutTitle>
             <AboutText>
-              With over 5 years of experience in full-stack development and digital innovation, 
-              I specialize in creating technology solutions that drive meaningful change. My journey 
-              spans across diverse sectors including education technology, non-profit digital platforms, 
-              and enterprise web applications across Europe and Africa.
+              With 2+ years of intensive full-stack development and digital innovation experience, 
+              I've dedicated my career to building technology that creates real, measurable impact. 
+              My journey has been marked by rapid growth, relentless learning, and an unwavering 
+              commitment to excellence. From education platforms that empower thousands of learners 
+              to NGO management systems that streamline social impact initiatives, every project 
+              I undertake is driven by a singular mission: to leverage technology as a catalyst for positive change.
             </AboutText>
             <AboutText>
-              As a Full-Stack Developer, I leverage modern frameworks like Next.js, React, and Node.js 
-              to build scalable, user-centric applications. My expertise extends beyond code to encompass 
-              strategic digital transformation, project management, and team leadership. I've successfully 
-              led initiatives that improved organizational efficiency, enhanced user engagement, and 
-              empowered communities through technology.
+              As a Full-Stack Developer, I've mastered modern frameworks including Next.js, React, and Node.js, 
+              architecting scalable, performant applications that deliver exceptional user experiences. 
+              My expertise transcends mere code—I bring strategic digital transformation thinking, 
+              innovative problem-solving, and leadership capabilities that drive projects from concept 
+              to deployment. I've successfully spearheaded initiatives across Europe and Africa, 
+              improving organizational efficiency, amplifying user engagement, and empowering communities 
+              through thoughtfully designed digital solutions.
             </AboutText>
             <AboutText>
-              My approach combines technical excellence with design thinking and data-driven decision making. 
-              Whether developing educational platforms that reach thousands of students, building NGO 
-              management systems, or creating interactive web experiences, I focus on solutions that 
-              are both innovative and impactful. I'm passionate about using technology as a force for 
-              positive change, particularly in education, social entrepreneurship, and community development.
+              My approach fuses technical mastery with design thinking, data-driven insights, and a 
+              deep understanding of user needs. Whether developing educational platforms that democratize 
+              learning, building robust NGO management ecosystems, or crafting immersive interactive web 
+              experiences, I obsess over every detail to ensure solutions are not just functional—they're 
+              transformative. I'm passionate about harnessing the power of technology to drive social 
+              entrepreneurship, revolutionize education, and build stronger, more connected communities. 
+              Together, let's build something legendary.
             </AboutText>
           </AboutContent>
         </AboutPreview>
@@ -108,7 +114,7 @@ const AboutText = styled.p`
   font-size: clamp(1.1rem, 2vw, 1.3rem);
   line-height: 1.8;
   margin-bottom: 2rem;
-  color: var(--color-cream-dark);
+  color: #D5D0C3;
   max-width: 900px;
 
   &:last-child {
