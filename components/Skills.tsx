@@ -58,7 +58,21 @@ export default function Skills() {
     const isMobile = window.innerWidth < 1024;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (reduceMotion) return;
+    if (reduceMotion || isMobile) {
+      // Use Intersection Observer for CSS animations on mobile
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      const icons = sectionRef.current?.querySelectorAll(".skill-icon");
+      icons?.forEach(icon => observer.observe(icon));
+
+      return () => observer.disconnect();
+    }
 
     const ctx = gsap.context(() => {
       const icons = sectionRef.current?.querySelectorAll(".skill-icon");
@@ -67,7 +81,7 @@ export default function Skills() {
         
         gsap.fromTo(icons, 
           {
-            y: isMobile ? 20 : 50,
+            y: 50,
             opacity: 0
           },
           {
@@ -78,8 +92,8 @@ export default function Skills() {
             },
             y: 0,
             opacity: 1,
-            stagger: isMobile ? 0.02 : 0.05,
-            duration: isMobile ? 0.4 : 0.6,
+            stagger: 0.05,
+            duration: 0.6,
             ease: "power2.out"
           }
         );
@@ -213,6 +227,38 @@ export default function Skills() {
 const SkillsSection = styled.section`
   padding: 8rem 2rem;
   background: var(--color-cream);
+
+  /* CSS animations for mobile */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .skill-icon {
+      opacity: 0;
+    }
+    
+    .skill-icon.animate-in {
+      animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+    
+    /* Stagger effect */
+    .skill-icon.animate-in:nth-child(1) { animation-delay: 0.05s; }
+    .skill-icon.animate-in:nth-child(2) { animation-delay: 0.1s; }
+    .skill-icon.animate-in:nth-child(3) { animation-delay: 0.15s; }
+    .skill-icon.animate-in:nth-child(4) { animation-delay: 0.2s; }
+    .skill-icon.animate-in:nth-child(5) { animation-delay: 0.25s; }
+    .skill-icon.animate-in:nth-child(6) { animation-delay: 0.3s; }
+    .skill-icon.animate-in:nth-child(7) { animation-delay: 0.35s; }
+    .skill-icon.animate-in:nth-child(8) { animation-delay: 0.4s; }
+  }
 
   @media (max-width: 768px) {
     padding: 4rem 1.5rem;

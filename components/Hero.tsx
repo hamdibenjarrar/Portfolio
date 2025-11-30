@@ -26,70 +26,69 @@ export default function Hero() {
     const isMobile = window.innerWidth < 1024;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (reduceMotion) return; // Skip animations if user prefers reduced motion
+    if (reduceMotion || isMobile) {
+      // Use CSS animations on mobile for better performance
+      // Add animation classes instead of GSAP
+      titleRef.current.classList.add('animate-in');
+      subtitleRef.current.classList.add('animate-in');
+      descRef.current.classList.add('animate-in');
+      ctaRef.current.classList.add('animate-in');
+      return;
+    }
 
     const ctx = gsap.context(() => {
-      // Simplified animations for mobile
-      const duration = isMobile ? 0.6 : 1;
-      const delay = isMobile ? 0.1 : 0.2;
-
-      // Animate title words
+      // Desktop only GSAP animations
       const titleWords = titleRef.current?.querySelectorAll('.word');
       if (titleWords) {
         gsap.from(titleWords, {
           opacity: 0,
-          y: isMobile ? 30 : 100,
-          rotateX: isMobile ? 0 : -90,
-          stagger: isMobile ? 0.05 : 0.1,
-          duration: duration,
+          y: 100,
+          rotateX: -90,
+          stagger: 0.1,
+          duration: 1,
           ease: "power2.out",
-          delay: delay
+          delay: 0.2
         });
       }
 
-      // Animate subtitle
       gsap.from(subtitleRef.current, {
         opacity: 0,
         y: 20,
-        duration: duration,
-        delay: isMobile ? 0.3 : 0.8,
+        duration: 1,
+        delay: 0.8,
         ease: "power2.out"
       });
 
-      // Animate description
       gsap.from(descRef.current, {
         opacity: 0,
         y: 20,
-        duration: duration,
-        delay: isMobile ? 0.5 : 1.2,
+        duration: 1,
+        delay: 1.2,
         ease: "power2.out"
       });
 
-      // Animate CTA buttons
       if (ctaRef.current) {
         gsap.from(ctaRef.current.children, {
           opacity: 0,
           y: 20,
           stagger: 0.1,
           duration: 0.6,
-          delay: isMobile ? 0.7 : 1.6,
+          delay: 1.6,
           ease: "power2.out"
         });
       }
 
-      // Disable parallax on mobile for better performance
-      if (!isMobile) {
-        gsap.to(heroRef.current, {
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 1
-          },
-          y: 200,
-          opacity: 0.3
-        });
-      }
+      // Desktop parallax
+      gsap.to(heroRef.current, {
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1
+        },
+        y: 200,
+        opacity: 0.3
+      });
     }, heroRef);
 
     return () => ctx.revert();
@@ -157,7 +156,7 @@ export default function Hero() {
                 placeholder="blur"
                 blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
-                style={{ objectFit: 'cover', willChange: 'transform' }}
+                style={{ objectFit: 'cover', transform: 'translate3d(0,0,0)', backfaceVisibility: 'hidden' }}
               />
               <ImageBorder />
             </ProfileImageWrapper>
@@ -181,6 +180,41 @@ const HeroSection = styled.section`
   padding: 8rem 2rem 4rem;
   overflow: hidden;
   background: var(--color-cream);
+
+  /* CSS animation keyframes for mobile */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Apply animations on mobile */
+  @media (max-width: 1023px) {
+    .animate-in {
+      animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+    
+    h2.animate-in {
+      animation-delay: 0.1s;
+    }
+    
+    h1.animate-in {
+      animation-delay: 0.2s;
+    }
+    
+    p.animate-in {
+      animation-delay: 0.3s;
+    }
+    
+    div.animate-in {
+      animation-delay: 0.4s;
+    }
+  }
 
   @media (max-width: 768px) {
     padding: 6rem 1.5rem 3rem;
@@ -227,17 +261,17 @@ const ProfileImageWrapper = styled.div`
   width: 100%;
   max-width: 400px;
   aspect-ratio: 1;
-  animation: fadeInScale 0.8s ease-out 0.6s both;
-  will-change: transform, opacity;
+  animation: fadeInScale 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+  will-change: transform;
   
   @keyframes fadeInScale {
-    from {
+    0% {
       opacity: 0;
-      transform: scale(0.9);
+      transform: translate3d(0, 0, 0) scale(0.96);
     }
-    to {
+    100% {
       opacity: 1;
-      transform: scale(1);
+      transform: translate3d(0, 0, 0) scale(1);
     }
   }
   
@@ -249,14 +283,13 @@ const ProfileImageWrapper = styled.div`
     position: relative;
     z-index: 2;
     filter: grayscale(20%);
-    transition: all 0.4s ease;
-    transform: translateZ(0);
-    will-change: filter, transform;
+    transition: filter 0.3s ease;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
   }
   
   &:hover img {
     filter: grayscale(0%);
-    transform: scale(1.02) translateZ(0);
   }
 `;
 

@@ -99,8 +99,9 @@ export default function App({ Component, pageProps }: AppProps) {
             <Component {...pageProps} />
           </PageTransition>
         </AnimatePresence>
-        <SpeedInsights />
-        <Analytics />
+        {/* Defer analytics on mobile for better performance */}
+        {!isMobile && <SpeedInsights />}
+        {!isMobile && <Analytics />}
       </ThemeProvider>
     </div>
   );
