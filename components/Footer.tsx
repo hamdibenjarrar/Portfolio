@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -65,6 +65,14 @@ export default function Footer() {
                 aria-label="Email"
               >
                 <FaEnvelope /> Email
+              </SocialLink>
+              <SocialLink
+                href="https://wa.me/21622104391"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <FaWhatsapp /> WhatsApp
               </SocialLink>
             </SocialLinks>
           </LinksColumn>

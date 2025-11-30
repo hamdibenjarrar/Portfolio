@@ -32,26 +32,56 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="icon" href="/logo.png"/>
-          <meta name="description" content="Hamdi Ben Jarrar - Innovation & Impact Leader | Full-Stack Developer specializing in Next.js, React, Node.js. Building digital solutions for social impact." />
+          <link rel="canonical" href="https://hamdibenjarrar.tech" />
           <meta name="keywords" content="Hamdi Ben Jarrar, Full Stack Developer, Next.js, React, Node.js, Innovation Leader, Digital Solutions, Social Impact, Web Development, Tunisia" />
           <meta name="author" content="Hamdi Ben Jarrar" />
           
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://hamdibenjarrar.tech" />
           <meta property="og:title" content="Hamdi Ben Jarrar | Innovation & Impact Leader | Full-Stack Developer" />
-          <meta property="og:description" content="Building digital solutions that scale social impact. Expert in Next.js, React, Node.js, and digital innovation." />
-          <meta property="og:image" content="/img.png" />
+          <meta property="og:description" content="Full-Stack Developer & Digital Innovation Strategist with 5+ years of experience building impactful solutions for social change. Expert in Next.js, React, Node.js, and digital transformation projects across Europe and Africa." />
+          <meta property="og:image" content="https://hamdibenjarrar.tech/img.png" />
           
           {/* Twitter */}
           <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:url" content="https://hamdibenjarrar.tech" />
           <meta name="twitter:title" content="Hamdi Ben Jarrar | Innovation & Impact Leader" />
-          <meta name="twitter:description" content="Full-Stack Developer specializing in digital solutions for social impact" />
-          <meta name="twitter:image" content="/img.png" />
+          <meta name="twitter:description" content="Full-Stack Developer specializing in digital solutions for social change with expertise in Next.js, React, and Node.js" />
+          <meta name="twitter:image" content="https://hamdibenjarrar.tech/img.png" />
           
           {/* Mobile optimization */}
           <meta name="theme-color" content="#0A0A0A" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+          <link rel="apple-touch-icon" href="/logo.png" />
           
-          <script dangerouslySetInnerHTML={{ __html: `window.__VERCEL_ANALYTICS_DISABLE = true;` }} />
+          {/* Structured Data */}
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Hamdi Ben Jarrar",
+            "url": "https://hamdibenjarrar.tech",
+            "image": "https://hamdibenjarrar.tech/img.png",
+            "jobTitle": "Full-Stack Developer & Innovation Leader",
+            "description": "Full-Stack Developer & Digital Innovation Strategist building impactful solutions for social change",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Tunis",
+              "addressCountry": "Tunisia"
+            },
+            "sameAs": [
+              "https://github.com/hamdibenjarrar",
+              "https://www.linkedin.com/in/hamdi-ben-jarrar-01b80a202/",
+              "https://www.instagram.com/hamdi.benjarrar"
+            ],
+            "knowsAbout": ["Next.js", "React", "Node.js", "Digital Innovation", "Social Impact", "Web Development"],
+            "alumniOf": "GOMYCODE",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Wallah We Can"
+            }
+          }) }} />
         </Head>
 
         <body>

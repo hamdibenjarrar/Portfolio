@@ -128,7 +128,7 @@ export default function Skills() {
   return (
     <SkillsSection ref={sectionRef}>
       <SectionHeader>
-        <SectionTitle>EXPERTISE</SectionTitle>
+        <SectionTitle as="h2">EXPERTISE</SectionTitle>
         <SectionSubtitle>Building Impact Through Technology & Leadership</SectionSubtitle>
       </SectionHeader>
 

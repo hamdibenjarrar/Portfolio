@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { ThemeProvider } from "styled-components";
 import { AnimatePresence } from "framer-motion";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import Loader from "../components/Loader";
 import CustomCursor from "../components/CustomCursor";
 import PageTransition from "../components/PageTransition";
@@ -65,6 +66,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </PageTransition>
       </AnimatePresence>
       <SpeedInsights />
+      <Analytics />
     </ThemeProvider>
   );
 }

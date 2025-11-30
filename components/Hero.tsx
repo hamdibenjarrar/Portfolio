@@ -95,13 +95,13 @@ export default function Hero() {
       <HeroContent>
         <ContentGrid>
           <TextContent>
-            <LargeTitle ref={titleRef}>
-              {splitText("INNOVATION & IMPACT")}
-            </LargeTitle>
-            
             <Subtitle ref={subtitleRef}>
               HAMDI BEN JARRAR
             </Subtitle>
+            
+            <LargeTitle ref={titleRef}>
+              {splitText("Full-Stack Developer & Innovation Leader")}
+            </LargeTitle>
 
             <Description ref={descRef}>
               Innovation & Impact Leader | Full-Stack Developer | Experience Designer. 
@@ -257,7 +257,7 @@ const LargeTitle = styled.h1`
   position: relative;
   
   &::after {
-    content: 'INNOVATION & IMPACT';
+    content: 'Full-Stack Developer & Innovation Leader';
     position: absolute;
     top: 3px;
     left: 3px;

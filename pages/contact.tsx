@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import { HiPhone, HiLocationMarker } from "react-icons/hi";
 
 if (typeof window !== "undefined") {
@@ -202,6 +202,14 @@ export default function Contact() {
                     whileHover={{ y: -5, scale: 1.1 }}
                   >
                     <FaInstagram size={28} />
+                  </SocialIcon>
+                  <SocialIcon 
+                    href="https://wa.me/21622104391" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -5, scale: 1.1 }}
+                  >
+                    <FaWhatsapp size={28} />
                   </SocialIcon>
                 </SocialIcons>
               </SocialLinks>
