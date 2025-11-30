@@ -146,7 +146,9 @@ export default function Hero() {
                 width={500}
                 height={500}
                 priority
-                quality={85}
+                quality={75}
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
                 style={{ objectFit: 'cover' }}
               />

@@ -32,6 +32,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="icon" href="/logo.png"/>
+          <link rel="preload" as="image" href="/img.png" type="image/png" fetchpriority="high" />
           <link rel="canonical" href="https://hamdibenjarrar.tech" />
           <meta name="keywords" content="Hamdi Ben Jarrar, Full Stack Developer, Next.js, React, Node.js, Innovation Leader, Digital Solutions, Social Impact, Web Development, Tunisia" />
           <meta name="author" content="Hamdi Ben Jarrar" />

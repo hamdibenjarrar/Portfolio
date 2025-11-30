@@ -72,6 +72,11 @@
     "vaul": "^0.9.6",
     "zod": "^3.24.1"
   },
+  "browserslist": [
+    ">0.3%",
+    "not dead",
+    "not op_mini all"
+  ],
   "devDependencies": {
     "@types/node": "^22.19.1",
     "@types/nodemailer": "^7.0.4",

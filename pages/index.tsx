@@ -101,7 +101,7 @@ const AboutTitle = styled.h2`
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
   margin-bottom: 3rem;
-  color: var(--color-red);
+  color: #E84855;
   letter-spacing: -0.02em;
 
   @media (max-width: 768px) {
