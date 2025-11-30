@@ -55,6 +55,11 @@ export default function Skills() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
+    const isMobile = window.innerWidth < 1024;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) return;
+
     const ctx = gsap.context(() => {
       const icons = sectionRef.current?.querySelectorAll(".skill-icon");
       if (icons) {
@@ -62,7 +67,7 @@ export default function Skills() {
         
         gsap.fromTo(icons, 
           {
-            y: 50,
+            y: isMobile ? 20 : 50,
             opacity: 0
           },
           {
@@ -73,9 +78,9 @@ export default function Skills() {
             },
             y: 0,
             opacity: 1,
-            stagger: 0.05,
-            duration: 0.6,
-            ease: "power3.out"
+            stagger: isMobile ? 0.02 : 0.05,
+            duration: isMobile ? 0.4 : 0.6,
+            ease: "power2.out"
           }
         );
       }

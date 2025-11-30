@@ -32,6 +32,11 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="icon" href="/logo.png"/>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link rel="preconnect" href="https://vercel.live" />
+          <link rel="preconnect" href="https://va.vercel-scripts.com" />
+          <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
           <link rel="preload" as="image" href="/img.png" type="image/png" fetchpriority="high" />
           <link rel="canonical" href="https://hamdibenjarrar.tech" />
           <meta name="keywords" content="Hamdi Ben Jarrar, Full Stack Developer, Next.js, React, Node.js, Innovation Leader, Digital Solutions, Social Impact, Web Development, Tunisia" />

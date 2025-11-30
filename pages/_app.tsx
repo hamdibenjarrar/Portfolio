@@ -49,22 +49,33 @@ const theme = {
 
 export default function App({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    // Initial page load
+    // Check if mobile device
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024 || 'ontouchstart' in window);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // Reduced initial page load time for mobile
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500);
+    }, isMobile ? 1500 : 2500);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     // Handle route changes
     const handleStart = () => setLoading(true);
     const handleComplete = () => {
-      setTimeout(() => setLoading(false), 800);
+      setTimeout(() => setLoading(false), isMobile ? 400 : 800);
     };
 
     router.events.on("routeChangeStart", handleStart);
@@ -76,13 +87,13 @@ export default function App({ Component, pageProps }: AppProps) {
       router.events.off("routeChangeComplete", handleComplete);
       router.events.off("routeChangeError", handleComplete);
     };
-  }, [router]);
+  }, [router, isMobile]);
 
   return (
     <div className={`${playfair.variable} ${spaceGrotesk.variable} ${cormorant.variable}`}>
       <ThemeProvider theme={theme}>
         {loading && <Loader />}
-        <CustomCursor />
+        {!isMobile && <CustomCursor />}
         <AnimatePresence mode="wait" initial={false}>
           <PageTransition key={router.asPath}>
             <Component {...pageProps} />

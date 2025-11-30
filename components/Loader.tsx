@@ -17,34 +17,56 @@ export default function Loader({ onComplete }: LoaderProps) {
   useEffect(() => {
     if (!loaderRef.current || !textRef.current || !progressRef.current) return;
 
+    const isMobile = window.innerWidth < 1024;
+    
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         onComplete: () => {
           setTimeout(() => {
             setIsVisible(false);
             if (onComplete) onComplete();
-          }, 500);
+          }, isMobile ? 200 : 500);
         }
       });
 
-      tl.from(textRef.current, {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: "power3.out"
-      });
+      // Simplified animation for mobile
+      if (isMobile) {
+        tl.from(textRef.current, {
+          opacity: 0,
+          duration: 0.4,
+          ease: "power2.out"
+        });
 
-      tl.to(progressRef.current, {
-        scaleX: 1,
-        duration: 2,
-        ease: "power2.inOut"
-      });
+        tl.to(progressRef.current, {
+          scaleX: 1,
+          duration: 1,
+          ease: "power2.inOut"
+        });
 
-      tl.to(loaderRef.current, {
-        opacity: 0,
-        duration: 0.5,
-        delay: 0.3
-      });
+        tl.to(loaderRef.current, {
+          opacity: 0,
+          duration: 0.3
+        });
+      } else {
+        tl.from(textRef.current, {
+          opacity: 0,
+          y: 50,
+          duration: 0.8,
+          ease: "power3.out"
+        });
+
+        tl.to(progressRef.current, {
+          scaleX: 1,
+          duration: 2,
+          ease: "power2.inOut"
+        });
+
+        tl.to(loaderRef.current, {
+          opacity: 0,
+          duration: 0.5,
+          delay: 0.3
+        });
+      }
     }, loaderRef);
 
     return () => ctx.revert();

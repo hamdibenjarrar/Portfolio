@@ -1,9 +1,15 @@
 import Head from "next/head";
 import styled from "styled-components";
+import dynamic from "next/dynamic";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import Skills from "../components/Skills";
 import Footer from "../components/Footer";
+
+// Lazy load Skills component since it's below the fold
+const Skills = dynamic(() => import("../components/Skills"), {
+  ssr: true,
+  loading: () => null
+});
 
 export default function Home() {
   return (

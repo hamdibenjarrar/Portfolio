@@ -142,7 +142,7 @@ const BrandName = styled.h3`
 const BrandTagline = styled.p`
   font-family: var(--font-body);
   font-size: 1.1rem;
-  color: var(--color-red);
+  color: #E84855;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 `;

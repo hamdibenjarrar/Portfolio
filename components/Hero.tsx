@@ -22,62 +22,74 @@ export default function Hero() {
   useEffect(() => {
     if (!heroRef.current || !titleRef.current || !subtitleRef.current || !descRef.current || !ctaRef.current) return;
 
+    // Check if mobile
+    const isMobile = window.innerWidth < 1024;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) return; // Skip animations if user prefers reduced motion
+
     const ctx = gsap.context(() => {
+      // Simplified animations for mobile
+      const duration = isMobile ? 0.6 : 1;
+      const delay = isMobile ? 0.1 : 0.2;
+
       // Animate title words
       const titleWords = titleRef.current?.querySelectorAll('.word');
       if (titleWords) {
         gsap.from(titleWords, {
           opacity: 0,
-          y: 100,
-          rotateX: -90,
-          stagger: 0.1,
-          duration: 1,
-          ease: "power4.out",
-          delay: 0.2
+          y: isMobile ? 30 : 100,
+          rotateX: isMobile ? 0 : -90,
+          stagger: isMobile ? 0.05 : 0.1,
+          duration: duration,
+          ease: "power2.out",
+          delay: delay
         });
       }
 
       // Animate subtitle
       gsap.from(subtitleRef.current, {
         opacity: 0,
-        y: 30,
-        duration: 1,
-        delay: 0.8,
-        ease: "power3.out"
+        y: 20,
+        duration: duration,
+        delay: isMobile ? 0.3 : 0.8,
+        ease: "power2.out"
       });
 
       // Animate description
       gsap.from(descRef.current, {
         opacity: 0,
-        y: 30,
-        duration: 1,
-        delay: 1.2,
-        ease: "power3.out"
+        y: 20,
+        duration: duration,
+        delay: isMobile ? 0.5 : 1.2,
+        ease: "power2.out"
       });
 
       // Animate CTA buttons
       if (ctaRef.current) {
         gsap.from(ctaRef.current.children, {
           opacity: 0,
-          y: 30,
-          stagger: 0.15,
-          duration: 0.8,
-          delay: 1.6,
-          ease: "power3.out"
+          y: 20,
+          stagger: 0.1,
+          duration: 0.6,
+          delay: isMobile ? 0.7 : 1.6,
+          ease: "power2.out"
         });
       }
 
-      // Parallax effect on scroll
-      gsap.to(heroRef.current, {
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1
-        },
-        y: 200,
-        opacity: 0.3
-      });
+      // Disable parallax on mobile for better performance
+      if (!isMobile) {
+        gsap.to(heroRef.current, {
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1
+          },
+          y: 200,
+          opacity: 0.3
+        });
+      }
     }, heroRef);
 
     return () => ctx.revert();
