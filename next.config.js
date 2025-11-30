@@ -1,18 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: {
-        loader: "babel-loader",
-        options: {
-          presets: ["next/babel"],
-          plugins: [["styled-components", { "ssr": true }]],
-        },
-      },
-    });
-    return config;
+  compiler: {
+    styledComponents: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
