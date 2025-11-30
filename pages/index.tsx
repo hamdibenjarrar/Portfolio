@@ -20,7 +20,7 @@ export default function Home() {
           name="description" 
           content="Full-Stack Developer & Digital Innovation Strategist with 2+ years of intensive experience building transformative solutions for social change. Expert in Next.js, React, Node.js, and digital transformation projects across Europe and Africa. Specialized in education technology, NGO digital platforms, and scalable web applications that create lasting impact." 
         />
-        <link rel="icon" href="/logo.png" />
+        <link rel="icon" href="/logo.webp" />
       </Head>
 
       <Navbar />

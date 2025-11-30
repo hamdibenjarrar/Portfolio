@@ -146,23 +146,18 @@ export default function Hero() {
           </TextContent>
 
           <ImageContent>
-            <ProfileImageWrapper
-              as={motion.div}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 1 }}
-            >
+            <ProfileImageWrapper>
               <Image 
-                src="/img.png" 
+                src="/img.webp" 
                 alt="Hamdi Ben Jarrar - Full-Stack Developer and Innovation Leader" 
                 width={500}
                 height={500}
                 priority
-                quality={75}
+                quality={80}
                 placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
-                style={{ objectFit: 'cover' }}
+                blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+                style={{ objectFit: 'cover', willChange: 'transform' }}
               />
               <ImageBorder />
             </ProfileImageWrapper>
@@ -232,6 +227,19 @@ const ProfileImageWrapper = styled.div`
   width: 100%;
   max-width: 400px;
   aspect-ratio: 1;
+  animation: fadeInScale 0.8s ease-out 0.6s both;
+  will-change: transform, opacity;
+  
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
   
   img {
     width: 100%;
@@ -242,11 +250,13 @@ const ProfileImageWrapper = styled.div`
     z-index: 2;
     filter: grayscale(20%);
     transition: all 0.4s ease;
+    transform: translateZ(0);
+    will-change: filter, transform;
   }
   
   &:hover img {
     filter: grayscale(0%);
-    transform: scale(1.02);
+    transform: scale(1.02) translateZ(0);
   }
 `;
 
