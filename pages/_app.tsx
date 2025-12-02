@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { Playfair_Display, Space_Grotesk, Cormorant_Garamond } from "next/font/google";
+import Head from "next/head";
 import Loader from "../components/Loader";
 import CustomCursor from "../components/CustomCursor";
 import PageTransition from "../components/PageTransition";
@@ -51,6 +52,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
+  const canonicalUrl = `https://hamdibenjarrar.tech${router.asPath === '/' ? '' : router.asPath.split('?')[0]}`;
 
   useEffect(() => {
     // Check if mobile device
@@ -91,6 +93,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <div className={`${playfair.variable} ${spaceGrotesk.variable} ${cormorant.variable}`}>
+      <Head>
+        <link rel="canonical" href={canonicalUrl} />
+      </Head>
       <ThemeProvider theme={theme}>
         {loading && <Loader />}
         {!isMobile && <CustomCursor />}
