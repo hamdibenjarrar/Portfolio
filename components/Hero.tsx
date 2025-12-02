@@ -107,11 +107,11 @@ export default function Hero() {
       <HeroContent>
         <ContentGrid>
           <TextContent>
-            <Subtitle ref={subtitleRef}>
+            <Subtitle ref={subtitleRef} as="h1">
               HAMDI BEN JARRAR
             </Subtitle>
             
-            <LargeTitle ref={titleRef}>
+            <LargeTitle ref={titleRef} as="h2">
               {splitText("Full-Stack Developer & Innovation Leader")}
             </LargeTitle>
 
