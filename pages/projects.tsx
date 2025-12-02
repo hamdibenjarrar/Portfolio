@@ -105,8 +105,10 @@ export default function Projects() {
   return (
     <Container ref={sectionRef}>
       <Head>
-        <title>Hamdi Ben Jarrar | Projects</title>
-        <meta name="description" content="Explore my portfolio of digital solutions, web projects, and creative coding experiments" />
+        <title>Hamdi Ben Jarrar | Projects - Digital Solutions</title>
+        <meta name="description" content="Explore a portfolio of high-impact digital solutions, web applications, and creative coding experiments by Hamdi Ben Jarrar. Next.js, React, and Node.js expertise." />
+        <meta property="og:title" content="Hamdi Ben Jarrar | Projects - Digital Solutions" />
+        <meta property="og:description" content="Explore a portfolio of high-impact digital solutions, web applications, and creative coding experiments." />
       </Head>
 
       <Navbar />

@@ -62,6 +62,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
           <link rel="preload" as="image" href="/img.webp" type="image/webp" fetchpriority="high" />
           <link rel="canonical" href="https://hamdibenjarrar.tech" />
+          <meta name="google-adsense-account" content="ca-pub-1629124394187689" />
           <meta name="keywords" content="Hamdi Ben Jarrar, Full Stack Developer, Next.js, React, Node.js, Innovation Leader, Digital Solutions, Social Impact, Web Development, Tunisia" />
           <meta name="author" content="Hamdi Ben Jarrar" />
           

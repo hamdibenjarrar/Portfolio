@@ -192,8 +192,10 @@ export default function About() {
   return (
     <Container>
       <Head>
-        <title>Hamdi Ben Jarrar | About</title>
-        <meta name="description" content="Learn about my journey in software engineering, innovation, and social impact" />
+        <title>Hamdi Ben Jarrar | About - Innovation & Impact</title>
+        <meta name="description" content="Discover Hamdi Ben Jarrar's journey in full-stack development, digital innovation, and social impact leadership. Transforming ideas into scalable solutions." />
+        <meta property="og:title" content="Hamdi Ben Jarrar | About - Innovation & Impact" />
+        <meta property="og:description" content="Discover Hamdi Ben Jarrar's journey in full-stack development, digital innovation, and social impact leadership." />
       </Head>
 
       <Navbar />

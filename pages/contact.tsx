@@ -104,8 +104,10 @@ export default function Contact() {
   return (
     <Container>
       <Head>
-        <title>Hamdi Ben Jarrar | Contact</title>
-        <meta name="description" content="Get in touch to discuss digital solutions, social impact projects, or collaboration opportunities" />
+        <title>Hamdi Ben Jarrar | Contact - Let's Collaborate</title>
+        <meta name="description" content="Connect with Hamdi Ben Jarrar for digital transformation projects, web development, and social impact collaborations. Let's build something meaningful together." />
+        <meta property="og:title" content="Hamdi Ben Jarrar | Contact - Let's Collaborate" />
+        <meta property="og:description" content="Connect with Hamdi Ben Jarrar for digital transformation projects, web development, and social impact collaborations." />
       </Head>
 
       <Navbar />
