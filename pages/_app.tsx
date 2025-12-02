@@ -6,7 +6,6 @@ import { AnimatePresence } from "framer-motion";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { Playfair_Display, Space_Grotesk, Cormorant_Garamond } from "next/font/google";
-import Script from "next/script";
 import Loader from "../components/Loader";
 import CustomCursor from "../components/CustomCursor";
 import PageTransition from "../components/PageTransition";
@@ -92,18 +91,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <div className={`${playfair.variable} ${spaceGrotesk.variable} ${cormorant.variable}`}>
-      <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-E3247XEQ55"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-E3247XEQ55');
-        `}
-      </Script>
       <ThemeProvider theme={theme}>
         {loading && <Loader />}
         {!isMobile && <CustomCursor />}
