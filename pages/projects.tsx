@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -12,20 +12,35 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+interface ProjectVersion {
+  name: string;
+  link: string;
+  image: string;
+}
+
 interface Project {
   id: number;
   title: string;
   category: string;
   description: string;
   technologies: string[];
-  link: string;
+  link?: string;
   image?: string;
   video?: string;
   featured: boolean;
+  versions?: ProjectVersion[];
 }
 
 export default function Projects() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [activeVersions, setActiveVersions] = useState<{[key: number]: number}>({});
+
+  const toggleVersion = (projectId: number, versionIndex: number) => {
+    setActiveVersions(prev => ({
+      ...prev,
+      [projectId]: versionIndex
+    }));
+  };
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -66,9 +81,19 @@ export default function Projects() {
       category: "Social Impact & Web Development",
       description: "Leading the development of collaborative digital platforms, chatbots, and web tools for education and youth empowerment initiatives across Tunisia.",
       technologies: ["Next.js", "React", "Node.js", "MongoDB", "Chatbot Integration"],
-      link: "https://wallahwecan.vercel.app/fr",
-      image: "/wwc.png",
-      featured: true
+      featured: true,
+      versions: [
+        {
+          name: "V2 (New)",
+          link: "https://v2-nine-pink.vercel.app/en",
+          image: "/wwc2.png"
+        },
+        {
+          name: "V1 (Legacy)",
+          link: "https://wallahwecan.vercel.app/fr",
+          image: "/wwc.png"
+        }
+      ]
     },
     {
       id: 2,
@@ -86,7 +111,7 @@ export default function Projects() {
       category: "Creative Portfolio Website",
       description: "An elegant, minimalist portfolio website designed for a visual artist to showcase their work. Features smooth animations, gallery layouts, and responsive design.",
       technologies: ["React", "Next.js", "Framer Motion", "CSS Grid", "Responsive Design"],
-      link: "https://artistportfolio-theta.vercel.app/",
+      link: "https://yassineradhouani.me/",
       image: "/art.png",
       featured: true
     },
@@ -127,40 +152,61 @@ export default function Projects() {
 
         <ProjectsSection>
           <ProjectsGrid>
-            {projects.map((project) => (
-              <ProjectCard 
-                key={project.id} 
-                className="project-card"
-                $featured={project.featured}
-              >
-                <ProjectImageWrapper>
-                  {project.video ? (
-                    <ProjectVideo autoPlay loop muted playsInline>
-                      <source src={project.video} type="video/mp4" />
-                    </ProjectVideo>
-                  ) : (
-                    <ProjectImage src={project.image || '/placeholder-project.jpg'} alt={project.title} />
-                  )}
-                  <ProjectOverlay>
-                    <ProjectLink href={project.link} target="_blank" rel="noopener noreferrer">
-                      <FaExternalLinkAlt /> VIEW PROJECT
-                    </ProjectLink>
-                  </ProjectOverlay>
-                </ProjectImageWrapper>
+            {projects.map((project) => {
+              const activeVersionIndex = activeVersions[project.id] || 0;
+              const currentVersion = project.versions ? project.versions[activeVersionIndex] : null;
+              const displayImage = currentVersion ? currentVersion.image : (project.image || '/placeholder-project.jpg');
+              const displayLink = currentVersion ? currentVersion.link : project.link;
 
-                <ProjectContent>
-                  <ProjectCategory>{project.category}</ProjectCategory>
-                  <ProjectTitle>{project.title}</ProjectTitle>
-                  <ProjectDescription>{project.description}</ProjectDescription>
-                  
-                  <TechStack>
-                    {project.technologies.map((tech, idx) => (
-                      <TechTag key={idx}>{tech}</TechTag>
-                    ))}
-                  </TechStack>
-                </ProjectContent>
-              </ProjectCard>
-            ))}
+              return (
+                <ProjectCard 
+                  key={project.id} 
+                  className="project-card"
+                  $featured={project.featured}
+                >
+                  <ProjectImageWrapper>
+                    {project.video ? (
+                      <ProjectVideo autoPlay loop muted playsInline>
+                        <source src={project.video} type="video/mp4" />
+                      </ProjectVideo>
+                    ) : (
+                      <ProjectImage src={displayImage} alt={project.title} />
+                    )}
+                    <ProjectOverlay>
+                      <ProjectLink href={displayLink} target="_blank" rel="noopener noreferrer">
+                        <FaExternalLinkAlt /> VIEW PROJECT
+                      </ProjectLink>
+                    </ProjectOverlay>
+                  </ProjectImageWrapper>
+
+                  <ProjectContent>
+                    <ProjectCategory>{project.category}</ProjectCategory>
+                    <ProjectTitle>{project.title}</ProjectTitle>
+                    <ProjectDescription>{project.description}</ProjectDescription>
+                    
+                    <TechStack>
+                      {project.technologies.map((tech, idx) => (
+                        <TechTag key={idx}>{tech}</TechTag>
+                      ))}
+                    </TechStack>
+
+                    {project.versions && (
+                      <VersionSwitcher>
+                        {project.versions.map((v, idx) => (
+                          <VersionButton 
+                            key={idx} 
+                            $active={idx === activeVersionIndex}
+                            onClick={() => toggleVersion(project.id, idx)}
+                          >
+                            {v.name}
+                          </VersionButton>
+                        ))}
+                      </VersionSwitcher>
+                    )}
+                  </ProjectContent>
+                </ProjectCard>
+              );
+            })}
           </ProjectsGrid>
         </ProjectsSection>
 
@@ -313,11 +359,11 @@ const ProjectCard = styled.div<{ $featured: boolean }>`
 const ProjectImage = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.5s ease;
 
   ${ProjectCard}:hover & {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `;
 
@@ -463,5 +509,33 @@ const CTAButton = styled.a`
   &:hover {
     background: transparent;
     color: var(--color-red);
+  }
+`;
+
+const VersionSwitcher = styled.div`
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+`;
+
+const VersionButton = styled.button<{ $active: boolean }>`
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  background: ${props => props.$active ? 'var(--color-black)' : 'transparent'};
+  color: ${props => props.$active ? 'var(--color-cream)' : 'var(--color-black)'};
+  border: 1px solid var(--color-black);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    background: var(--color-black);
+    color: var(--color-cream);
+    transform: translateY(-1px);
   }
 `;
