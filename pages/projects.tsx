@@ -90,7 +90,7 @@ export default function Projects() {
         },
         {
           name: "V1 (Legacy)",
-          link: "https://wallahwecan.vercel.app/fr",
+          link: "https://wallahwecan.vercel.app/en",
           image: "/wwc.png"
         }
       ]
@@ -182,27 +182,28 @@ export default function Projects() {
                   <ProjectContent>
                     <ProjectCategory>{project.category}</ProjectCategory>
                     <ProjectTitle>{project.title}</ProjectTitle>
-                    <ProjectDescription>{project.description}</ProjectDescription>
+                    <ProjectDescription>
+                      {project.description}
+                      {project.versions && (
+                        <VersionSwitcher>
+                          {project.versions.map((v, idx) => (
+                            <VersionButton 
+                              key={idx} 
+                              $active={idx === activeVersionIndex}
+                              onClick={() => toggleVersion(project.id, idx)}
+                            >
+                              {v.name}
+                            </VersionButton>
+                          ))}
+                        </VersionSwitcher>
+                      )}
+                    </ProjectDescription>
                     
                     <TechStack>
                       {project.technologies.map((tech, idx) => (
                         <TechTag key={idx}>{tech}</TechTag>
                       ))}
                     </TechStack>
-
-                    {project.versions && (
-                      <VersionSwitcher>
-                        {project.versions.map((v, idx) => (
-                          <VersionButton 
-                            key={idx} 
-                            $active={idx === activeVersionIndex}
-                            onClick={() => toggleVersion(project.id, idx)}
-                          >
-                            {v.name}
-                          </VersionButton>
-                        ))}
-                      </VersionSwitcher>
-                    )}
                   </ProjectContent>
                 </ProjectCard>
               );
@@ -431,7 +432,7 @@ const ProjectTitle = styled.h3`
   line-height: 1.2;
 `;
 
-const ProjectDescription = styled.p`
+const ProjectDescription = styled.div`
   font-family: var(--font-body);
   font-size: 1.05rem;
   line-height: 1.7;
@@ -512,19 +513,18 @@ const CTAButton = styled.a`
   }
 `;
 
-const VersionSwitcher = styled.div`
-  display: flex;
-  gap: 0.8rem;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(0,0,0,0.1);
+const VersionSwitcher = styled.span`
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  vertical-align: middle;
 `;
 
 const VersionButton = styled.button<{ $active: boolean }>`
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.8rem;
   background: ${props => props.$active ? 'var(--color-black)' : 'transparent'};
   color: ${props => props.$active ? 'var(--color-cream)' : 'var(--color-black)'};
   border: 1px solid var(--color-black);
