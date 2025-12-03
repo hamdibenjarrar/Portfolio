@@ -133,15 +133,15 @@ export default function Skills() {
   ];
 
   const softSkills: SkillItem[] = [
-    { icon: <HiUserGroup />, name: "Team Leadership", category: "soft" },
-    { icon: <HiLightBulb />, name: "Innovation", category: "soft" },
-    { icon: <HiChatBubbleLeftRight />, name: "Communication", category: "soft" },
-    { icon: <HiRocketLaunch />, name: "Project Mgmt", category: "soft" },
-    { icon: <HiPuzzlePiece />, name: "Problem Solving", category: "soft" },
-    { icon: <HiChartBar />, name: "Strategic Planning", category: "soft" },
-    { icon: <HiAcademicCap />, name: "Coaching", category: "soft" },
-    { icon: <HiSparkles />, name: "Creativity", category: "soft" },
-    { icon: <HiCog />, name: "Process Optim.", category: "soft" },
+    { icon: <HiUserGroup />, name: "Systems Leadership", category: "soft" },
+    { icon: <HiLightBulb />, name: "Digital Innovation", category: "soft" },
+    { icon: <HiChatBubbleLeftRight />, name: "Strategic Clarity", category: "soft" },
+    { icon: <HiRocketLaunch />, name: "Intentional Workflows", category: "soft" },
+    { icon: <HiPuzzlePiece />, name: "Root Cause Analysis", category: "soft" },
+    { icon: <HiChartBar />, name: "Vision & Structure", category: "soft" },
+    { icon: <HiAcademicCap />, name: "Knowledge Transfer", category: "soft" },
+    { icon: <HiSparkles />, name: "Disciplined Creativity", category: "soft" },
+    { icon: <HiCog />, name: "Workflow Automation", category: "soft" },
   ];
 
   return (
@@ -204,7 +204,7 @@ export default function Skills() {
         </SkillCategory>
 
         <SkillCategory>
-          <CategoryTitle>Professional Skills</CategoryTitle>
+          <CategoryTitle>Strategic Capabilities</CategoryTitle>
           <SkillsGrid>
             {softSkills.map((skill, index) => (
               <SkillIcon 

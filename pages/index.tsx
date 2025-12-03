@@ -3,6 +3,7 @@ import styled from "styled-components";
 import dynamic from "next/dynamic";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import IdentityMarquee from "../components/IdentityMarquee";
 import Footer from "../components/Footer";
 
 // Lazy load Skills component since it's below the fold
@@ -30,6 +31,7 @@ export default function Home() {
 
       <Main>
         <Hero />
+        <IdentityMarquee />
         <AboutPreview>
           <AboutContent>
             <AboutTitle>Crafting Digital Solutions That Transform Lives</AboutTitle>
