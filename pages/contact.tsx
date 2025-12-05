@@ -129,8 +129,10 @@ export default function Contact() {
             <ContactInfoWrapper className="contact-info">
               <InfoTitle>Get In Touch</InfoTitle>
               <InfoText>
-                I'm always open to discussing new projects, creative ideas, or opportunities 
-                to be part of your vision. Feel free to reach out through any of the channels below.
+                I am always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you are looking to build a scalable digital ecosystem, optimize your operational workflows, or simply want to discuss the intersection of technology and philosophy, I am here to listen.
+              </InfoText>
+              <InfoText>
+                My approach to collaboration is built on transparency, strategic alignment, and a shared commitment to excellence. Let's create something impactful together.
               </InfoText>
 
               <ContactDetails>

@@ -13,12 +13,12 @@ export default function Footer() {
         <MainSection>
           <FooterBrand>
             <BrandName>HAMDI BEN JARRAR</BrandName>
-            <BrandTagline>Innovation & Impact Leader</BrandTagline>
+            <BrandTagline>Architect of Digital Ecosystems</BrandTagline>
           </FooterBrand>
           
           <FooterDescription>
-            Building digital solutions that scale social impact, enhance organizational efficiency, 
-            and empower communities through purposeful design and data-driven processes.
+            Bridging the gap between technology, strategy, and human potential. 
+            Building systems that think, scale, and serve a higher purpose.
           </FooterDescription>
         </MainSection>
 
@@ -28,8 +28,18 @@ export default function Footer() {
             <FooterLinks>
               <FooterLink href="/">Home</FooterLink>
               <FooterLink href="/about">About</FooterLink>
+              <FooterLink href="/services">Services</FooterLink>
               <FooterLink href="/projects">Projects</FooterLink>
+              <FooterLink href="/blog">Blog</FooterLink>
               <FooterLink href="/contact">Contact</FooterLink>
+            </FooterLinks>
+          </LinksColumn>
+
+          <LinksColumn>
+            <ColumnTitle>Legal</ColumnTitle>
+            <FooterLinks>
+              <FooterLink href="/privacy-policy">Privacy Policy</FooterLink>
+              <FooterLink href="/terms">Terms of Service</FooterLink>
             </FooterLinks>
           </LinksColumn>
 
@@ -161,7 +171,7 @@ const LinksSection = styled.div`
   gap: 3rem;
 
   @media (min-width: 640px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 

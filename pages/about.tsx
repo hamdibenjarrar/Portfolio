@@ -208,7 +208,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <PageTitle>ABOUT ME</PageTitle>
-            <PageSubtitle>Engineering Innovation & Impact</PageSubtitle>
+            <PageSubtitle>Architecting Digital Ecosystems & Human Potential</PageSubtitle>
           </HeroContent>
         </HeroSection>
 
@@ -219,15 +219,18 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: false, amount: 0.3 }}
           >
-            <IntroTitle>Innovation & Impact Leader | Full-Stack Developer | Experience Designer</IntroTitle>
+            <IntroTitle>The Intersection of Strategy, Technology, and Stoicism</IntroTitle>
             <IntroText>
-              Experienced in deploying digital solutions, web projects, and social impact initiatives. Skilled in frontend and backend 
-              development (Next.js, React, Node.js), digital strategy, project management, and collaborative platforms.
+              I am an Architect of Digital Ecosystems. My work exists at the intersection of technology, strategy, and human potential. I do not just build software; I build systems that think, scale, and serve a higher purpose.
             </IntroText>
             <IntroText>
-              Passionate about transforming organizations through purposeful design, data-driven processes, and empowering teams. 
-              I aim to build digital solutions that scale social impact, enhance organizational efficiency, and empower communities—combining 
-              tech, data, and societal benefit.
+              My journey has never been linear. From leading high-stakes digital transformations to managing complex operational workflows, I have learned that true innovation is not about the code—it is about the clarity of the vision behind it. I combine the precision of a Full-Stack Engineer with the strategic depth of a Consultant and the discipline of a Stoic.
+            </IntroText>
+            <IntroText>
+              I believe in "Tech with a Soul"—technology that amplifies human capability rather than replacing it. Whether I am designing a scalable SaaS architecture, optimizing a business process, or mentoring a team, my goal is always the same: to create order from chaos and to build digital assets that stand the test of time.
+            </IntroText>
+            <IntroText>
+              This portfolio is not just a showcase of my code. It is a manifesto of my belief that the future belongs to those who can bridge the gap between the technical and the human. Welcome to my ecosystem.
             </IntroText>
           </IntroContent>
         </IntroSection>

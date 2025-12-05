@@ -34,32 +34,15 @@ export default function Home() {
         <IdentityMarquee />
         <AboutPreview>
           <AboutContent>
-            <AboutTitle>Crafting Digital Solutions That Transform Lives</AboutTitle>
+            <AboutTitle>The Intersection of Technology, Strategy, and Human Potential</AboutTitle>
             <AboutText>
-              With 2+ years of intensive full-stack development and digital innovation experience, 
-              I've dedicated my career to building technology that creates real, measurable impact. 
-              My journey has been marked by rapid growth, relentless learning, and an unwavering 
-              commitment to excellence. From education platforms that empower thousands of learners 
-              to NGO management systems that streamline social impact initiatives, every project 
-              I undertake is driven by a singular mission: to leverage technology as a catalyst for positive change.
+              I am not just a developer. I am an architect of digital ecosystems. My work exists at the convergence of <strong>Full-Stack Engineering</strong>, <strong>Strategic Leadership</strong>, and <strong>Stoic Philosophy</strong>. In a world drowning in noise, I build clarity.
             </AboutText>
             <AboutText>
-              As a Full-Stack Developer, I've mastered modern frameworks including Next.js, React, and Node.js, 
-              architecting scalable, performant applications that deliver exceptional user experiences. 
-              My expertise transcends mere code—I bring strategic digital transformation thinking, 
-              innovative problem-solving, and leadership capabilities that drive projects from concept 
-              to deployment. I've successfully spearheaded initiatives across Europe and Africa, 
-              improving organizational efficiency, amplifying user engagement, and empowering communities 
-              through thoughtfully designed digital solutions.
+              My mission is twofold. First, to build premium, scalable digital solutions that solve complex problems for organizations. Second, to ignite a movement of <strong>autonomy and innovation</strong> within the next generation of Tunisian thinkers. I believe that technology is not the end goal; it is the lever we use to elevate human potential.
             </AboutText>
             <AboutText>
-              My approach fuses technical mastery with design thinking, data-driven insights, and a 
-              deep understanding of user needs. Whether developing educational platforms that democratize 
-              learning, building robust NGO management ecosystems, or crafting immersive interactive web 
-              experiences, I obsess over every detail to ensure solutions are not just functional—they're 
-              transformative. I'm passionate about harnessing the power of technology to drive social 
-              entrepreneurship, revolutionize education, and build stronger, more connected communities. 
-              Together, let's build something legendary.
+              From architecting robust NGO platforms to designing immersive brand experiences, I bring a relentless focus on quality and purpose. I don't just write code; I craft systems that empower, educate, and endure. Whether you are a founder looking for a technical partner or a visionary seeking a digital strategist, I am here to help you build something legendary.
             </AboutText>
           </AboutContent>
         </AboutPreview>

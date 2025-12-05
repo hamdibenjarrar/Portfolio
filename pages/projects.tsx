@@ -150,6 +150,26 @@ export default function Projects() {
           </motion.div>
         </HeroSection>
 
+        <IntroSection>
+          <IntroContent
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false, amount: 0.3 }}
+          >
+            <IntroTitle>Digital Ecosystems & Strategic Solutions</IntroTitle>
+            <IntroText>
+              Every line of code is a decision. Every interface is a conversation. My portfolio is a collection of digital ecosystems designed to solve real-world problems.
+            </IntroText>
+            <IntroText>
+              I do not believe in "shipping features." I believe in delivering value. From complex fintech platforms to social impact initiatives, each project here represents a unique challenge and a strategic solution. I approach development with a holistic mindset, ensuring that the architecture is scalable, the code is clean, and the user experience is intuitive.
+            </IntroText>
+            <IntroText>
+              Here, you will find a blend of technical rigor and creative problem-solving. Whether it is a high-traffic web application or an experimental creative coding project, the underlying philosophy remains the same: Technology must serve a purpose.
+            </IntroText>
+          </IntroContent>
+        </IntroSection>
+
         <ProjectsSection>
           <ProjectsGrid>
             {projects.map((project) => {
@@ -537,5 +557,41 @@ const VersionButton = styled.button<{ $active: boolean }>`
     background: var(--color-black);
     color: var(--color-cream);
     transform: translateY(-1px);
+  }
+`;
+
+const IntroSection = styled.section`
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
+`;
+
+const IntroContent = styled(motion.div)`
+  text-align: center;
+`;
+
+const IntroTitle = styled.h2`
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+`;
+
+const IntroText = styled.p`
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  color: var(--color-gray);
+  margin-bottom: 1.5rem;
+
+  strong {
+    color: var(--color-black);
+    font-weight: 600;
   }
 `;
